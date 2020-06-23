@@ -1,6 +1,5 @@
 package com.edw.controller;
 
-import com.edw.Application;
 import com.edw.entity.Account;
 import com.edw.repository.AccountRepository;
 import io.restassured.RestAssured;
@@ -8,16 +7,11 @@ import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static io.restassured.RestAssured.given;
@@ -44,7 +38,7 @@ public class AccountControllerIT {
     public void setup() {
         RestAssured.port = this.port;
 
-        accountRepository.deleteById(10);
+        accountRepository.delete(new Account(10));
 
         Account account = new Account();
         account.setId(10);
