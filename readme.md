@@ -5,5 +5,11 @@ This project is for testing how integration test is being automated on Jenkins, 
 ## Test the project using Maven
 
 ```shell script
-mvn failsafe:integration-test
+mvn failsafe:integration-test  -DMYSQL_URL=127.0.0.1
+```
+
+or
+
+```
+mvn verify -DMYSQL_URL=127.0.0.1
 ```
