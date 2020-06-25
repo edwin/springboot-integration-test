@@ -6,7 +6,6 @@ import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -46,7 +45,6 @@ public class AccountControllerIT {
         accountRepository.save(account);
     }
 
-    @DisplayName("This is an integration test on http GET SUCCESS")
     @Test
     public void getSuccess() throws Exception {
         given()
@@ -57,7 +55,6 @@ public class AccountControllerIT {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @DisplayName("This is an integration test on http GET FAILED")
     @Test
     public void getFailed() throws Exception {
         given()
